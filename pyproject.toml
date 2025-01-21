@@ -1,0 +1,11 @@
+[project]
+name = "meraki-exporter"
+version = "0.1.0"
+description = "Custom exporter for Meraki network"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.6",
+    "meraki>=1.54.0",
+    "prometheus-client>=0.21.1",
+]
