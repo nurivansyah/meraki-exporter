@@ -1,0 +1,9 @@
+services:
+
+  meraki-exporter:
+    image: ghcr.io/nurivansyah/meraki-exporter:latest
+    container_name: meraki-exporter
+    env_file:
+      - .env
+    ports:
+      - 8000:80
