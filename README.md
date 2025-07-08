@@ -11,3 +11,5 @@ uv run --env-file .env fastapi dev app/main.py
 
 Metrics available:
 - `ip_address`: Current IP Address Information for each network
+- `interface_ip_address`: Current IP Address Information for each WAN Interface
+- `interface_ip_address_public`: Current Public IP Address Information for each WAN Interface

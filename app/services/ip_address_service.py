@@ -1,7 +1,9 @@
+import ipaddress
 from typing import List
 
-from configs.meraki import organization_id, session
 from pydantic import BaseModel, IPvAnyAddress
+
+from app.configs.meraki import organization_id, session
 
 
 class UplinkIPAddress(BaseModel):
@@ -39,3 +41,15 @@ def get_ip_public():
             )
 
     return ip_address_list
+
+
+def ip_to_integer(ip_address_str):
+    try:
+        addr = ipaddress.IPv4Address(ip_address_str)
+        return int(addr)
+    except ipaddress.AddressValueError:
+        try:
+            addr = ipaddress.IPv6Address(ip_address_str)
+            return int(addr)
+        except ipaddress.AddressValueError:
+            raise ValueError(f"Invalid IP address format: {ip_address_str}")
